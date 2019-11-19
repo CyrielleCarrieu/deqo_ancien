@@ -9,7 +9,7 @@ public interface QuestionAChoix {
      * Opération permettant de récupérer l'énoncé de la question
      * @return l'énoncé de la question
      */
-    public String getEnonce();
+    String getEnonce();
 
     /**
      * Opération permettant de récupérer le score donné par un choix.
@@ -19,6 +19,6 @@ public interface QuestionAChoix {
      * @param indiceChoix l'indice du choix
      * @return le score donné par cette indice
      */
-    public float getScoreForIndice(int indiceChoix);
+    float getScoreForIndice(int indiceChoix);
 
 }
