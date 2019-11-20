@@ -3,26 +3,35 @@ package deqo;
 import java.util.List;
 
 /**
- * Classe répresentant une question à choix multiple
+ * Classe répresentant une question à choix multiple.
  */
-public class QuestionAChoixMultiple implements QuestionAChoix {
+public final class QuestionAChoixMultiple implements QuestionAChoix {
 
+    /**
+     * gzegeg.
+     */
     private String enonce;
+    /**
+     * fezg.
+     */
     private List<Integer> indicesBonnesReponses;
 
     /**
-     * Une question à choix multiple est complètement caractérisé par son énoncé et la liste des indices qui forment
+     * Une question à choix multiple est complètement caractérisé par son.
+     * énoncé et la liste des indices qui forment
      * la bonne réponse
-     * @param enonce l'énoncé de la question
-     * @param indicesBonnesReponses la liste des indices formant la bonne réponse.
+     * @param enonce1 l'énoncé de la question
+     * @param indicesBonnesReponses1 la liste des indices formant la bonne
+     *                             réponse.
      */
-    public QuestionAChoixMultiple(String enonce, List<Integer> indicesBonnesReponses) {
-        this.enonce = enonce;
-        this.indicesBonnesReponses = indicesBonnesReponses;
+    public QuestionAChoixMultiple(final String enonce1,
+                                  final List<Integer> indicesBonnesReponses1) {
+        this.enonce = enonce1;
+        this.indicesBonnesReponses = indicesBonnesReponses1;
     }
 
     /**
-     * Récupère l'énoncé de la question
+     * Récupère l'énoncé de la question.
      * @return l'énoncé de la question
      */
     public String getEnonce() {
@@ -32,12 +41,13 @@ public class QuestionAChoixMultiple implements QuestionAChoix {
     /**
      * Opération permettant de récupérer le score donné par un choix.
      * @param indiceChoix l'indice du choix
-     * @return 100/n si indiceChoix appartient à la liste des indices formant la bonne réponse, 0 sinon
+     * @return 100/n si indiceChoix appartient à la liste des indices
+     * formant la bonne réponse, 0 sinon
      */
-    public float getScoreForIndice(int indiceChoix) {
-
+    public float getScoreForIndice(final int indiceChoix) {
+        final float cent = 100f;
         if (indicesBonnesReponses.contains(indiceChoix)) {
-            return 100f / ((float) (indicesBonnesReponses.size()));
+            return cent / ((float) (indicesBonnesReponses.size()));
         }
         return 0;
     }

@@ -1,29 +1,28 @@
 package deqo;
 
-import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
 
-@RunWith(Arquillian.class)
 public class QuestionAChoixExclusifTest {
-    @Deployment
-    public static JavaArchive createDeployment() {
-        return ShrinkWrap.create(JavaArchive.class)
-                .addClass(QuestionAChoixExclusif.class)
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
-    }
-
+    private static final String ENONCE = "enonce";
+    private static final int REPONSE = 3;
+    private static final int REPONSEF = 9;
+    private static final float SCOREB = 100f;
     @Test
     public void getEnonce() {
+        QuestionAChoixExclusif question =
+                new QuestionAChoixExclusif(ENONCE, REPONSE);
+        assertEquals(ENONCE, question.getEnonce());
     }
 
     @Test
     public void getScoreForIndice() {
+
+        final float SCOREC = 0f;
+        QuestionAChoixExclusif question =
+                new QuestionAChoixExclusif(ENONCE, REPONSE);
+        assertEquals(SCOREB, question.getScoreForIndice(REPONSE),SCOREB);
+        assertEquals(SCOREC, question.getScoreForIndice(REPONSEF),SCOREB);
     }
 }
